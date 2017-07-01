@@ -63,4 +63,11 @@
         android:layout_below="@+id/btn_main_chooseImage"
         android:layout_marginTop="@dimen/main_marginTop"
         android:text="Request Places" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_main_placePickerReturn"
+        android:hint="PlacePicker response"
+        android:layout_below="@+id/btn_main_requestPlaces"/>
 </RelativeLayout>

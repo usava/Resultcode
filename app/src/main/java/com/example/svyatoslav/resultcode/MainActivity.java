@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.squareup.picasso.Picasso;
 
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Phone = (TextView) findViewById(R.id.tv_main_phone);
         Button request = (Button) findViewById(R.id.btn_main_request);
         Button chooseImage = (Button) findViewById(R.id.btn_main_chooseImage);
+        Button getLocation = (Button) findViewById(R.id.btn_main_requestPlaces);
+        getLocation.setOnClickListener(this);
         request.setOnClickListener(this);
         chooseImage.setOnClickListener(this);
     }
@@ -60,9 +63,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .load(uri.toString())
                         .into(CirleImage);
             }
+
+            if(requestCode == Config.REQUEST_PLACES){
+                getPlaceData(data);
+            }
         }
     }
 
+    private void getPlaceData(Intent data){
+        Place place = PlacePicker.getPlace(data, this);
+        String name = place.getName().toString();
+        String address = place.getAddress().toString();
+        TextView tv_main_placePickerReturn = (TextView) findViewById(R.id.tv_main_placePickerReturn);
+        tv_main_placePickerReturn.setText(name + " " + address);
+    }
 
 
     @Override
