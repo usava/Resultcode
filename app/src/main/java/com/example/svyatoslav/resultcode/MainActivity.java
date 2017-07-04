@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void getPlaceData(Intent data){
-        Place place = PlacePicker.getPlace(data, this);
+        Place place = PlacePicker.getPlace(this, data);
         String name = place.getName().toString();
         String address = place.getAddress().toString();
         TextView tv_main_placePickerReturn = (TextView) findViewById(R.id.tv_main_placePickerReturn);
