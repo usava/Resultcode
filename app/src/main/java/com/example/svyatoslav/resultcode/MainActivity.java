@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Surname.setText(surname);
                 Phone.setText(phone);
             }
-            CircleImageView CirleImage = (CircleImageView) findViewById(R.id.civ_main_cirleImage);
             if(requestCode == Config.REQUEST_IMAGE){
+                CircleImageView CirleImage = (CircleImageView) findViewById(R.id.civ_main_cirleImage);
                 Uri uri = data.getData();
                 Log.d("URI", "Uri: " + uri.toString());
                 Picasso.with(this)
